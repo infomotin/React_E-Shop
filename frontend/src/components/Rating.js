@@ -52,13 +52,16 @@ const Rating = ({value,text,color}) => {
                 ></i>
             </span>
             <span>
-                 { text && text }
+                 { text && text } 
             </span>
         </div>
 
         
     )
 }
+
+
+
 Rating.defaultProps = {
     color: '#f8e825'
 }
