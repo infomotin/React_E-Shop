@@ -1,20 +1,36 @@
-import React,{useState,useEffect} from 'react'
 import {Col,Row} from 'react-bootstrap'
 // import products from '../products'
 import Product from '../components/Product'
+
+
+
+import React,{useState,useEffect} from 'react'
+
 import axios from 'axios'
 
 const HomeScreen = () => {
-    const [products,serProducts] = useState([])
-    useEffect(()=>{
-       const fetchProducts = async () =>{
+
+
+    const [products,setProducts] = useState([])
+
+
+    // Auto calling as like constractor 
+    useEffect( () => {
+        // #normal variable 
+
+        const fetchProducts = async () =>{
            const {data} = await axios.get('api/products')
 
-           serProducts(data) 
+           setProducts(data) 
 
        }
+
+    //    calling this functions 
        fetchProducts()
     },[])
+
+
+
     return ( 
         <>
             <h1>Latest Products </h1>
