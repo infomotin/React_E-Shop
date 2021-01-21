@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "\"MERN shopping cart app\"",
     "main": "server.js",
-    // for sometime importing "module": "",
+
     "type": "module",
     "dependencies": {
         "-": "0.0.1",

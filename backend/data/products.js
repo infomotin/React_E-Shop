@@ -96,3 +96,6 @@ const products = [{
 ]
 
 export default products
+
+// if configure are default 
+// module.exports = products
