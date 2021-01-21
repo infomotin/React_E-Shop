@@ -25,7 +25,7 @@ const SingleProd = ({match}) => {
 
     //    calling this functions 
        fetchProduct()
-    },[])
+    },[match])
 
 
 
