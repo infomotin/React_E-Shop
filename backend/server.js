@@ -19,4 +19,6 @@ app.get('/api/products/:id', (req, res) => {
     const product = products.find(p => p._id === req.params.id)
     res.json(product)
 })
-app.listen(5000, console.log('Sever is Running -----'))
+
+const PORT = process.env.PORT || 5000
+app.listen(PORT, console.log(`Sever is Running ${process.env.NODE_ENV} server  port is ${PORT}`))
