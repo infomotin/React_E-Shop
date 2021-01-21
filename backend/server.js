@@ -1,5 +1,13 @@
 const express = require('express')
+    // adding 
+const dotenv = require('dotenv')
 const products = require('./data/products')
+    // env configerrations 
+
+dotenv.config()
+
+
+
 const app = express()
 app.get('/', (req, res) => {
     res.send('API RUNNENG...')
