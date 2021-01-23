@@ -32,4 +32,11 @@ const userSchema = mongoose.Schema({
         required: false
     }
 
+}, {
+    timestamps: true
 })
+
+const User = mongoose.model('User', userSchema)
+
+
+export default User
