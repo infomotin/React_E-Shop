@@ -20,16 +20,19 @@ const userSchema = mongoose.Schema({
         default: false
     },
     phone: {
-        type: number,
-        required: false
+        type: String,
+        required: false,
+        default: false
     },
     fname: {
         type: String,
-        required: false
+        required: false,
+        default: 'Motin'
     },
     lname: {
         type: String,
-        required: false
+        required: false,
+        default: 'Abdul'
     }
 
 }, {
