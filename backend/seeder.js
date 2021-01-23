@@ -3,9 +3,9 @@ import dotenv from 'dotenv'
 import colors from 'colors'
 import users from './data/users.js'
 import products from './data/products.js'
-import User from './models/userModel.js'
-import Product from './models/productModel.js'
-import Order from './models/orderModel.js'
+import User from './model/userModel.js'
+import Product from './model/productModel.js'
+import Order from './model/orderModel.js'
 import connectDB from './config/db.js'
 
 dotenv.config()
@@ -33,4 +33,29 @@ const importData = async() => {
         console.log(`Data Not inseart on Mongodb Error is ${error}`.red.bold)
         process.exit(1)
     }
+}
+
+
+
+const destroytData = async() => {
+    try {
+        await Order.deleteMany()
+        await Product.deleteMany()
+        await User.deleteMany()
+
+
+        console.log('data  Delete '.green.bold)
+
+        process.exit()
+    } catch (error) {
+        console.log(`data not Delete ${error}`.red.bold)
+        process.exit(1)
+    }
+}
+
+
+if (process.argv[2] === '-d') {
+    destroytData()
+} else {
+    importData()
 }

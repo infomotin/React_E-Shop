@@ -23,18 +23,7 @@ const userSchema = mongoose.Schema({
         type: String,
         required: false,
         default: false
-    },
-    fname: {
-        type: String,
-        required: false,
-        default: 'Motin'
-    },
-    lname: {
-        type: String,
-        required: false,
-        default: 'Abdul'
     }
-
 }, {
     timestamps: true
 })

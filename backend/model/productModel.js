@@ -29,7 +29,7 @@ const productSchema = mongoose.Schema({
         required: true
 
     },
-    manufacture: {
+    brand: {
         type: String,
         required: true
     },
@@ -59,7 +59,7 @@ const productSchema = mongoose.Schema({
         default: 0
     },
     countInStock: {
-        type: Float,
+        type: Number,
         required: true,
         default: 0
     }
