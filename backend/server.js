@@ -17,7 +17,7 @@ connectDB()
 
 const app = express()
 app.get('/', (req, res) => {
-    res.send('API RUNNENG...')
+    res.send('API RUNNENG...'.blue.underline.bold)
 })
 app.get('/api/products', (req, res) => {
     res.json(products)
@@ -28,4 +28,4 @@ app.get('/api/products/:id', (req, res) => {
 })
 
 const PORT = process.env.PORT || 5000
-app.listen(PORT, console.log(`Sever is Running ${process.env.NODE_ENV} server  port is ${PORT}`))
+app.listen(PORT, console.log(`Sever is Running ${process.env.NODE_ENV} server  port is ${PORT}`.green.underline))
