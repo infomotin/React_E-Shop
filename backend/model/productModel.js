@@ -1,17 +1,17 @@
 import mongoose from 'mongoose'
-import User from 'userModel'
-import Reviews from 'reviewModel'
+// import User from 'userModel'
+// import Reviews from 'reviewModel'
 
 
-// const reviewsSchema = mongoose.Schema({
-//     name: { type: String, required: true },
-//     rating: { type: Number, required: true },
-//     comment: { type: String, required: true }
+const reviewsSchema = mongoose.Schema({
+    name: { type: String, required: true },
+    rating: { type: Number, required: true },
+    comment: { type: String, required: true }
 
 
-// }, {
-//     timestamps: true
-// })
+}, {
+    timestamps: true
+})
 
 const productSchema = mongoose.Schema({
     user: {
@@ -42,7 +42,7 @@ const productSchema = mongoose.Schema({
         type: String,
         required: false
     },
-    reviews: [Reviews],
+    reviews: [reviewsSchema],
     rating: {
         type: Number,
         required: true,
