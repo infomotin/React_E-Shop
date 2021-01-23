@@ -10,7 +10,7 @@ import dotenv from 'dotenv'
 import products from './data/products.js'
 import connectDB from './config/db.js'
 import colors from 'colors'
-import routes from '../routes/productRoutes.js'
+import productRoutes from './routes/productRoutes.js'
 
 dotenv.config()
 
@@ -27,6 +27,9 @@ app.get('/', (req, res) => {
     //     const product = products.find(p => p._id === req.params.id)
     //     res.json(product)
     // })
+
+app.use('/api/products', productRoutes)
+
 
 const PORT = process.env.PORT || 5000
 app.listen(PORT, console.log(`Sever is Running ${process.env.NODE_ENV} server  port is ${PORT}`.green.underline))
