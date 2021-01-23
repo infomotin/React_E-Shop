@@ -14,8 +14,23 @@ connectDB()
 
 const importData = async() => {
     try {
+        await Order.deleteMany()
+        await Product.deleteMany()
+        await User.deleteMany()
 
+        const createdUsers = await User.insertMany(users)
+        const adminUser = createdUsers[0]._id
+
+        const sampleProducts = products.map(product => {
+            return {...product, user: adminUser }
+        })
+        await Product.insertMany(sampleProducts)
+        console.log(
+            'data inseat sucssecsfull'.green.bold)
+
+        process.exit()
     } catch (error) {
-        pass
+        console.log(`Data Not inseart on Mongodb Error is ${error}`.red.bold)
+        process.exit(1)
     }
 }
