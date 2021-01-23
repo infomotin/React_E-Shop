@@ -54,7 +54,7 @@ const productSchema = mongoose.Schema({
         default: 0
     },
     price: {
-        type: Float,
+        type: Number,
         required: true,
         default: 0
     },
