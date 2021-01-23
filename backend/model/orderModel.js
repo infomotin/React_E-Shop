@@ -31,7 +31,7 @@ const orderSchema = mongoose.Schema({
         id: { type: String },
         status: { type: String },
         update_time: { type: String },
-        email_address: { type: Number }
+        email_address: { type: String }
     },
     texPrice: {
         type: Number,
