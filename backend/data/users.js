@@ -15,4 +15,4 @@ const users = [{
     password: bcrypt.hashSync('123456', 10)
 }]
 
-export default user
+export default users
