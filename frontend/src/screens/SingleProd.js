@@ -52,7 +52,7 @@ const {loading,product,error} = productDetails
         {" "}
         Go Back{" "}
       </Link>{" "}
-      <Row>
+  {loading ? <Loader/> : error ? <Message variant='danger'>{error}</Message> : (<Row>
         <Col md={6}>
           <Image src={product.image} alt={product.name} fluid />
         </Col>{" "}
@@ -104,8 +104,12 @@ const {loading,product,error} = productDetails
             </ListGroup.Item>{" "}
           </Card>
         </Col>{" "}
-      </Row>{" "}
-      {/* Second Eliment  */}
+      </Row>
+      )}
+
+
+    
+      
     </>
   );
 };
