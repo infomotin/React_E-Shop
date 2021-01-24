@@ -1,6 +1,8 @@
 import { Col, Row } from 'react-bootstrap'
 // import products from '../products'
 import Product from '../components/Product'
+import Loader from '../components/Loader'
+import Message from '../components/Message'
 //bring productReducers 
 
 import {useDispatch,useSelector} from 'react-redux'
@@ -51,7 +53,7 @@ const HomeScreen = () => {
         <>
         <h1 > Latest Products </h1>
         {
-         loading ? <h2>Loading....</h2>: error ? <h3>{error}</h3>:<Row > {
+         loading ? <Loader/>: error ? <Message variant='danger'>{error}</Message>:<Row > {
             products.map(product => ( 
             <Col key = { product._id }
                 sm = { 12 }
