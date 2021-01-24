@@ -1,62 +1,76 @@
 import { Col, Row } from 'react-bootstrap'
 // import products from '../products'
 import Product from '../components/Product'
+//bring productReducers 
+
+import {useDispatch,useSelector} from 'react-redux'
 
 
+// import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 
-import React, { useState, useEffect } from 'react'
+import {listProducts} from '../actions/productActions'
 
-import axios from 'axios'
+// import axios from 'axios'
 
 const HomeScreen = () => {
+    const dispatch = useDispatch()
+    const productList = useSelector(state => state.productList)
+    const {loading, error, products } = productList
 
 
-    const [products, setProducts] = useState([])
+    // const [products, setProducts] = useState([])
 
 
     // Auto calling as like constractor 
     useEffect(() => {
-        // #normal variable 
 
-        const fetchProducts = async() => {
-            const { data } = await axios.get('api/products')
+        dispatch(listProducts())
 
-            setProducts(data)
+        // // #normal variable 
 
-        }
+        // const fetchProducts = async() => {
+        //     const { data } = await axios.get('api/products')
 
-        //    calling this functions 
-        fetchProducts()
-    }, [])
+        //     setProducts(data)
 
+        // }
 
-
-    return ( <
-        >
-        <
-        h1 > Latest Products < /h1>
+        // //    calling this functions 
+        // fetchProducts()
 
 
-        <
-        Row > {
-            products.map(product => ( <
-                Col key = { product._id }
+
+    }, [dispatch])
+
+    // const products =[]
+
+
+
+    return ( 
+        <>
+        <h1 > Latest Products </h1>
+        {
+         loading ? <h2>Loading....</h2>: error ? <h3>{error}</h3>:<Row > {
+            products.map(product => ( 
+            <Col key = { product._id }
                 sm = { 12 }
                 md = { 6 }
                 lg = { 4 }
                 xl = { 3 } >
-                <
-                Product product = { product }
-                /> <
-                /Col>
+                <Product product = { product }
+                /> 
+                
+                </Col >
             ))
         }
 
-        <
-        /Row>
+        </Row>
+        }
 
-        <
-        />
+        
+
+        </>
     )
 }
 
