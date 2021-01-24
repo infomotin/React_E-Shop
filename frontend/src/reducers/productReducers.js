@@ -16,7 +16,7 @@ export const productListReducers = (state = { products: [] }, action) => {
         case PRODUCT_LIST_REQUEST:
             return { loading: true, ...state }
         case PRODUCT_LIST_SUCCESS:
-            return { loading: false, products: action.payload }
+            return { loading: false, product: action.payload }
         case PRODUCT_LIST_FAIL:
             return { loading: false, error: action.payload }
         default:
@@ -29,9 +29,9 @@ export const productListReducers = (state = { products: [] }, action) => {
 export const productDetailsReducers = (state = { product: { reviews: [] } }, action) => {
     switch (action.type) {
         case PRODUCT_DETAILS_REQUEST:
-            return { loading: true, products: [] }
+            return { loading: true, product: [] }
         case PRODUCT_DETAILS_SUCCESS:
-            return { loading: false, products: action.payload }
+            return { loading: false, product: action.payload }
         case PRODUCT_DETAILS_FAIL:
             return { loading: false, error: action.payload }
         default:
