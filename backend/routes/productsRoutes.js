@@ -9,7 +9,7 @@ const router = express.Router()
 router.get('/', asyncHandler(async(req, res) => {
     const products = await Product.find({})
         // res.status(401)
-        // throw new Error('Not Error Just Test')
+        // throw new Error('Not Error Just Test')    
     res.json(products)
 }))
 

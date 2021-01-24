@@ -8,9 +8,13 @@ import axios from 'axios'
 
 export const listProducts = () => async(dispatch) => {
     try {
-        dispatch({ type: PRODUCT_LIST_REQUEST })
+        dispatch({
+                type: PRODUCT_LIST_REQUEST
+            })
             //if this actions success 
-        const { data } = await axios.get('/api/products')
+        const {
+            data
+        } = await axios.get('/api/products')
             // then excuting 
         dispatch({
             type: PRODUCT_LIST_SUCCESS,
