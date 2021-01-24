@@ -20,6 +20,11 @@ import axios from "axios";
 
 const SingleProd = ({ match }) => {
   const dispatch = useDispatch();
+
+  const productDetails = useSelector(state => state.productDetails)
+
+//   deinstructure 
+const {loading,product,error} = productDetails
   // const product = products.find(p => p._id === match.params.id)
   // const [product, setProduct] = useState([])
   // Auto calling as like constractor
@@ -40,7 +45,7 @@ const SingleProd = ({ match }) => {
     // //    calling this functions
     //    fetchProduct()
   }, [dispatch, match]);
-  const product = {}
+//   const product = {}
   return (
     <>
       <Link className="btn btn-dark my-3" to="/">
