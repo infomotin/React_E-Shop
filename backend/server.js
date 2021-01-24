@@ -17,6 +17,10 @@ dotenv.config()
 connectDB()
 
 const app = express()
+app.use((req, res, next) => {
+    console.log(req.originalUrl)
+    next()
+})
 app.get('/', (req, res) => {
         res.send('API RUNNENG...')
     })
@@ -29,6 +33,10 @@ app.get('/', (req, res) => {
     // })
 
 app.use('/api/products', productRoutes)
+    //Error Hendeler Define 
+app.use((err, req, res, next) => {
+
+})
 
 
 const PORT = process.env.PORT || 5000
