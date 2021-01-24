@@ -19,7 +19,9 @@ router.get('/:id', asyncHandler(async(req, res) => {
     if (product) {
         res.json(product)
     } else {
-        res.status(404).json({ message: 'Product Not in List ' })
+        res.status(404)
+            // .json({ message: 'Product Not in List ' })
+        throw new Error('Product Not in List')
     }
 
 }))
