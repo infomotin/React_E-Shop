@@ -86,7 +86,7 @@ const {loading,product,error} = productDetails
                 <Col> Price: </Col> <Col> $ {product.price} </Col>{" "}
               </Row>{" "}
             </ListGroup.Item>{" "}
-            <ListGroup.Item variant={product.countInStock < 0 ? 'danger':'primary'}>
+            <ListGroup.Item variant={product.countInStock >= 0 ? "danger":"primary"}>
               <Row >
                 <Col> Stock: </Col>{" "}
                 <Col>
@@ -187,7 +187,7 @@ const {loading,product,error} = productDetails
 };
 
 
-
+// if propartis set as array likle = [][...Array(product.countInStock).keys()].map(x =>
 SingleProd.defaultProps = {
     color: '#b3f'
 }
