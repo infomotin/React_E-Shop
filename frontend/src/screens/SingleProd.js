@@ -19,7 +19,7 @@ import { listProductDetails } from "../actions/productActions";
 import axios from "axios";
 
 const SingleProd = ({ match }) => {
-    const [qty,setQty]= useState(0)
+const [qty,setQty]= useState(0)
   const dispatch = useDispatch();
 
   const productDetails = useSelector(state => state.productDetails)
@@ -95,7 +95,7 @@ const {loading,product,error} = productDetails
                         <Col>Qty:</Col>
                         <Col>
                             <Form.Control as ='select' value={qty} onChange={(e)=>setQty(e.target.value) }>
-                               {[...Array(product.countInSto).keys()].map(x => (
+                               {[...Array(product.countInStock).keys()].map(x => (
                                     <option key={x+1} value={x+1}>{x+1}</option>
                                ))}
                             </Form.Control> 
