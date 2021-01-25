@@ -76,9 +76,9 @@ const {loading,product,error} = productDetails
         </Col>{" "}
         <Col md={3}>
           <Card>
-          <ListGroup.Item>
-              <Row>
-                <span className='product' ><h4 style={{color}}>Your Product</h4></span>
+          <ListGroup.Item >
+              <Row className='justify-content-md-center'>
+                <span><h4 style={{color}}>Your Product</h4></span>
               </Row>{" "}
             </ListGroup.Item>{" "}
             <ListGroup.Item>
@@ -86,8 +86,8 @@ const {loading,product,error} = productDetails
                 <Col> Price: </Col> <Col> $ {product.price} </Col>{" "}
               </Row>{" "}
             </ListGroup.Item>{" "}
-            <ListGroup.Item>
-              <Row>
+            <ListGroup.Item variant={product.countInStock < 0 ? 'danger':'primary'}>
+              <Row >
                 <Col> Stock: </Col>{" "}
                 <Col>
                   {" "}
