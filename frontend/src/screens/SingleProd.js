@@ -18,7 +18,9 @@ import { listProductDetails } from "../actions/productActions";
 
 import axios from "axios";
 
-const SingleProd = ({ match }) => {
+const SingleProd = ({ match,color}) => {
+
+
 const [qty,setQty]= useState(0)
   const dispatch = useDispatch();
 
@@ -74,6 +76,11 @@ const {loading,product,error} = productDetails
         </Col>{" "}
         <Col md={3}>
           <Card>
+          <ListGroup.Item>
+              <Row>
+                <span className='product' ><h4 style={{color}}>Your Product</h4></span>
+              </Row>{" "}
+            </ListGroup.Item>{" "}
             <ListGroup.Item>
               <Row>
                 <Col> Price: </Col> <Col> $ {product.price} </Col>{" "}
@@ -88,13 +95,61 @@ const {loading,product,error} = productDetails
                 </Col>{" "}
               </Row>{" "}
             </ListGroup.Item>
-            <ListGroup.Item>Test</ListGroup.Item>
+
+            <ListGroup.Item>
+                <Row> 
+                    <Col>Manufacture</Col>
+                    <Col>Value</Col>
+                </Row>
+                {/* <Row>
+                    <Col>Test:</Col>
+                    <Col>Value</Col>
+                </Row> */}
+               
+                
+                
+            </ListGroup.Item>
+
+            <ListGroup.Item>
+                <Row> 
+                    <Col>Suppliare</Col>
+                    <Col>Value</Col>
+                </Row>
+                {/* <Row>
+                    <Col>Test:</Col>
+                    <Col>Value</Col>
+                </Row> */}   
+            </ListGroup.Item> 
+
+            <ListGroup.Item>
+                <Row> 
+                    <Col>Place of Home</Col>
+                    <Col>Value</Col>
+                </Row>
+                {/* <Row>
+                    <Col>Test:</Col>
+                    <Col>Value</Col>
+                </Row> */}   
+            </ListGroup.Item>
+
+            <ListGroup.Item>
+                <Row> 
+                    <Col>Delivary Time</Col>
+                    <Col>Value</Col>
+                </Row>
+                {/* <Row>
+                    <Col>Test:</Col>
+                    <Col>Value</Col>
+                </Row> */}   
+            </ListGroup.Item>
+
+            {/* if stock are avaale then excuting this part  */}
             {product.countInStock > 0 && (
                 <ListGroup.Item>
                     <Row>
                         <Col>Qty:</Col>
                         <Col>
-                            <Form.Control as ='select' value={qty} onChange={(e)=>setQty(e.target.value) }>
+                            <Form.Control as ='select' value={qty} onChange={(e)=>setQty(e.target.value)}>
                                {[...Array(product.countInStock).keys()].map(x => (
                                     <option key={x+1} value={x+1}>{x+1}</option>
                                ))}
@@ -130,5 +185,13 @@ const {loading,product,error} = productDetails
     </>
   );
 };
+
+
+
+SingleProd.defaultProps = {
+    color: '#b3f'
+}
+
+
 
 export default SingleProd;
