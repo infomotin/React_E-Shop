@@ -165,10 +165,12 @@ const {loading,product,error} = productDetails
                                             <Col>Price:</Col>
                                             <Col>${product.price}</Col>
                                         </Row> */}
-              <Button
+              <Button 
                 className="btn-block"
                 type="button"
                 disabled={product.countInStock === 0}
+                                        
+                onClick = {addToCart}
               >
                 {" "}
                 Add To Cart{" "}
