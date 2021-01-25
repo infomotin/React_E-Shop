@@ -17,8 +17,8 @@ import { listProductDetails } from "../actions/productActions";
 // import React,{useState,useEffect} from 'react'
 
 import axios from "axios";
-
-const SingleProd = ({ match,color}) => {
+// fro history param it 
+const SingleProd = ({ match,color,history}) => {
 
 
 const [qty,setQty]= useState(0)
@@ -49,6 +49,12 @@ const {loading,product,error} = productDetails
     //    fetchProduct()
   }, [dispatch, match]);
 //   const product = {}
+
+//addToCartHandler  deleacing fro testing part  gunctions  fro teting parpus 
+const addToCartHandler = () =>{
+    history.push(`/cart/${match.params.id}?qty=${qty}`)
+}
+
   return (
     <>
       <Link className="btn btn-dark my-3" to="/">
@@ -170,7 +176,7 @@ const {loading,product,error} = productDetails
                 type="button"
                 disabled={product.countInStock === 0}
                                         
-                onClick = {addToCart}
+                onClick = {addToCartHandler}
               >
                 {" "}
                 Add To Cart{" "}
