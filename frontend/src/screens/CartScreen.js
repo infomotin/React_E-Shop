@@ -33,7 +33,7 @@ export const CartScreen = ({ match, location, history }) => {
   console.log(cartItems);
   useEffect(() => {
     if (productId) {
-      dispatch(addToCart(productId, qty, qty));
+      dispatch(addToCart(productId, qty));
     }
   }, [dispatch, productId]);
 
@@ -54,13 +54,25 @@ export const CartScreen = ({ match, location, history }) => {
                     <Image src={items.image} alt={items.name} fluid />
                   </Col>
                   <Col md={3}>
-                    <Link to={`/api/products/${items.product}`}>
-                      {items.name}
-                    </Link>
+                    <Link to={`/product/${items.product}`}>{items.name}</Link>
                   </Col>
 
                   <Col md={2}>{`$:${items.price}`}</Col>
-                  <Col md={2}>{`Qty:${items.qty}`}</Col>
+                  <Col md={2}>
+                  <Form.Control
+                        as="select"
+                        value={qty}
+                        onChange={(e) => }
+                      >
+                        {" "}
+                        {[...Array(product.countInStock).keys()].map((x) => (
+                          <option key={x + 1} value={x + 1}>
+                            {" "}
+                            {x + 1}{" "}
+                          </option>
+                        ))}{" "}
+                      </Form.Control>{" "}
+                  </Col>
                 </Row>
               </ListGroup.Item>
             ))}
