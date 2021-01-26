@@ -3,11 +3,10 @@ import axios from 'axios'
 //getState come from store ....
 //dstructure data {data}
 export const addToCart =(id,qty) =>async(dispatch,getState) =>{
-    try{
-        //if this actions success 
-        dispatch({type:CART_ADD_ITEM})
-        const {data} = await axios.get(`/api/products/${id}`)
-        dispatch({
+    
+    const {data} = await axios.get(`/api/products/${id}`)
+    dispatch({
+            type:CART_ADD_ITEM,
             payload:{
                 product:data._id,
                 name:data.name,
@@ -17,15 +16,38 @@ export const addToCart =(id,qty) =>async(dispatch,getState) =>{
                 qty
             }
         })
+        localStorage.setItem('cartItems',JSON.stringify(getState().cart.cartItems))
 
-    }
-    catch(error){
-        dispatch({
-            type: CART_ERROR,
-            payload: error.response && error.response.data.message ?
-                error.response.data.message : error.message,
-        })
-    }
+    
+    
+    
+    
+    //try{
+    //     //if this actions success 
+    //     dispatch({type:CART_ADD_ITEM})
+    //     const {data} = await axios.get(`/api/products/${id}`)
+    //     dispatch({
+    //         payload:{
+    //             product:data._id,
+    //             name:data.name,
+    //             image:data.image,
+    //             price:data.price,
+    //             countInStock:data.countInStock,
+    //             qty
+    //         }
+    //     })
+
+    //     localStorage.setItem('cartItems',JSON.stringify(getState().cart.cartItems))
+
+
+    // }
+    // catch(error){
+    //     dispatch({
+    //         type: CART_ERROR,
+    //         payload: error.response && error.response.data.message ?
+    //             error.response.data.message : error.message,
+    //     })
+    // }
 
 
 
