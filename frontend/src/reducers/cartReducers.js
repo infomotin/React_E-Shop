@@ -1,4 +1,4 @@
-import { CART_ADD_ITEM, CART_REMOVE_ITEM } from '../constants/cartConstants'
+import { CART_ADD_ITEM, CART_REMOVE_ITEM, CART_ERROR } from '../constants/cartConstance'
 export const cartReducers = (state = {
     cartItems: [],
 }, action) => {
@@ -11,7 +11,7 @@ export const cartReducers = (state = {
             if (exitItem) {
                 return {
                     ...state,
-                    cartItems: state.cartItems.map(x => x.product === exicets.product ? item : x)
+                    cartItems: state.cartItems.map(x => x.product === exitItem.product ? item : x)
                 }
             } else {
                 return {
@@ -19,7 +19,10 @@ export const cartReducers = (state = {
                     cartItems: [...state.cartItems, item]
                 }
             }
-
+        case CART_REMOVE_ITEM:
+            return state
+        case CART_ERROR:
+            return state
         default:
             return state
     }
