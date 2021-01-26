@@ -59,19 +59,32 @@ export const CartScreen = ({ match, location, history }) => {
 
                   <Col md={2}>{`$:${items.price}`}</Col>
                   <Col md={2}>
-                  <Form.Control
-                        as="select"
-                        value={qty}
-                        onChange={(e) => }
-                      >
-                        {" "}
-                        {[...Array(product.countInStock).keys()].map((x) => (
-                          <option key={x + 1} value={x + 1}>
-                            {" "}
-                            {x + 1}{" "}
-                          </option>
-                        ))}{" "}
-                      </Form.Control>{" "}
+                    <Form.Control
+                      as="select"
+                      value={qty}
+                      onChange={(e) =>
+                        dispatch(
+                          addToCart(items.product, Number(e.target.value))
+                        )
+                      }
+                    >
+                      {" "}
+                      {[...Array(items.countInStock).keys()].map((x) => (
+                        <option key={x + 1} value={x + 1}>
+                          {" "}
+                          {x + 1}{" "}
+                        </option>
+                      ))}{" "}
+                    </Form.Control>{" "}
+                  </Col>
+                  <Col md={2}>
+                    <Button
+                      type="button"
+                      variant="dark"
+                      onClick={() => removeFromCartHandler(item.product)}
+                    >
+                      Remove
+                    </Button>
                   </Col>
                 </Row>
               </ListGroup.Item>
