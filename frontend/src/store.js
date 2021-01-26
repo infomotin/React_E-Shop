@@ -13,14 +13,13 @@ const reducer = combineReducers({
 })
 
 //if cart items are store in local variable in can retripe from local stoare else set to inital default 
+// is the key from store cartItems
 
 const cartItemsFromStorage = localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : []
 
 
 const initialState = {
-    cart: {
-        cartItems: 'HELLO DEMO PRODUCT'
-    }
+    cart: { cartItems: cartItemsFromStorage },
 }
 const middleware = [thunk]
 const store = createStore(

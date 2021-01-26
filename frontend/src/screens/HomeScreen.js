@@ -5,20 +5,21 @@ import Loader from '../components/Loader'
 import Message from '../components/Message'
 //bring productReducers 
 
-import {useDispatch,useSelector} from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 
 // import React, { useState, useEffect } from 'react'
 import React, { useEffect } from 'react'
 
-import {listProducts} from '../actions/productActions'
+import { listProducts } from '../actions/productActions'
 
 // import axios from 'axios'
-
+//
+//state come to store 
 const HomeScreen = () => {
     const dispatch = useDispatch()
     const productList = useSelector(state => state.productList)
-    const {loading, error, products } = productList
+    const { loading, error, products } = productList
 
 
     // const [products, setProducts] = useState([])
@@ -49,31 +50,35 @@ const HomeScreen = () => {
 
 
 
-    return ( 
-        <>
-        <h1 > Latest Products </h1>
-        {
-         loading ? <Loader/>: error ? <Message variant='danger'>{error}</Message>:<Row > {
-            products.map(product => ( 
-            <Col key = { product._id }
+    return ( <
+        >
+        <
+        h1 > Latest Products < /h1> {
+            loading ? < Loader / > : error ? < Message variant = 'danger' > { error } < /Message>:<Row > {
+            products.map(product => ( <
+                Col key = { product._id }
                 sm = { 12 }
                 md = { 6 }
                 lg = { 4 }
                 xl = { 3 } >
-                <Product product = { product }
+                <
+                Product product = { product }
                 /> 
-                
-                </Col >
+
+                <
+                /Col >
             ))
         }
 
-        </Row>
-        }
+        <
+        /Row>
+    }
 
-        
 
-        </>
-    )
+
+    <
+    />
+)
 }
 
 export default HomeScreen
