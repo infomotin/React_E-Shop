@@ -13,7 +13,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message";
 
-import { addToCart } from "../actions/cartActions";
+import { addToCart, removeFromCart } from "../actions/cartActions";
 
 export const CartScreen = ({ match, location, history }) => {
   const productId = match.params.id;
@@ -39,6 +39,7 @@ export const CartScreen = ({ match, location, history }) => {
   }, [dispatch, productId]);
 
   const removeFromCartHandler = (id) => {
+    dispatch(removeFromCart(id))
     console.log(id);
   };
   const checkOutHendler = () => {
