@@ -37,7 +37,7 @@ export const CartScreen = ({ match, location, history }) => {
       dispatch(addToCart(productId, qty));
     }
   }, [dispatch, productId]);
-
+  {/* if i send removeFromCartHandler to qty of product then i remove this qty amound  items.product ,items.qty*/ }
   const removeFromCartHandler = (id) => {
     dispatch(removeFromCart(id))
     console.log(id);
@@ -88,6 +88,9 @@ export const CartScreen = ({ match, location, history }) => {
                       </Form.Control>
                     </Col>
                     <Col md={2}>
+
+                      {/* if i send removeFromCartHandler to qty of product then i remove this qty amound  items.product ,items.qty*/}
+
                       <Button
                         type="button"
                         variant="dark"
