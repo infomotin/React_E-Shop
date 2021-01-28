@@ -12,8 +12,10 @@ const reducer = combineReducers({
     cartList: cartReducers,
 })
 
-//if cart items are store in local variable in can retripe from local stoare else set to inital default 
-// is the key from store cartItems
+// //if cart items are store in local variable in can retripe from local stoare else set to inital default 
+// // is the key from store cartItems  localStorage.setItem(
+//     "cartItems",
+//     JSON.stringify(getState().cartList.cartItems)
 
 const cartItemsFromStorage = localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : []
 

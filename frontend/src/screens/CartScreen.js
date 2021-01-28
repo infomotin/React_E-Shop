@@ -31,11 +31,16 @@ export const CartScreen = ({ match, location, history }) => {
   const { cartItems } = cartList;
 
   console.log(cartItems);
+
   useEffect(() => {
     if (productId) {
       dispatch(addToCart(productId, qty));
     }
   }, [dispatch, productId]);
+
+  const removeFromCartHandler = (id) => {
+    console.log(id);
+  };
 
   return (
     <Row>
@@ -61,29 +66,29 @@ export const CartScreen = ({ match, location, history }) => {
                   <Col md={2}>
                     <Form.Control
                       as="select"
-                      value={qty}
+                      value={items.qty}
                       onChange={(e) =>
                         dispatch(
                           addToCart(items.product, Number(e.target.value))
                         )
                       }
                     >
-                      {" "}
+                      
                       {[...Array(items.countInStock).keys()].map((x) => (
                         <option key={x + 1} value={x + 1}>
-                          {" "}
-                          {x + 1}{" "}
+                          
+                          {x + 1}
                         </option>
-                      ))}{" "}
-                    </Form.Control>{" "}
+                      ))}
+                    </Form.Control>
                   </Col>
                   <Col md={2}>
                     <Button
                       type="button"
                       variant="dark"
-                      onClick={() => removeFromCartHandler(item.product)}
+                      onClick={() => removeFromCartHandler(items.product)}
                     >
-                      Remove
+                      <i className="fas fa-trash"></i>
                     </Button>
                   </Col>
                 </Row>
