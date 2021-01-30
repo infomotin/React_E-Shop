@@ -30,7 +30,17 @@ const authUser =asyncHandler(async(req, res) =>{
 
 
 })
+//reg new new user 
+const registerUser = asyncHandler(async (req,res)=>{
+    const {name,email,password} = req.body
+    const userExists = await User.findOne({email})
+    if(userExists){
+        res.status(400)
+        throw new Error('Email are Exiesting ')
+    }else{
 
+    }
+})
 
 //@decs Get user profile
 //@route GET /api/user/profile
@@ -58,7 +68,19 @@ const getUserProfile =asyncHandler(async(req, res) =>{
 //     throw new Error('Invalide user or password')
 // }
 
-res.send('Successful')
+const user = await User.findById(req.user._id)
+if(user){
+    res.json({
+        _id: user._id,
+            name: user.name,
+            email: user.email,
+            isAdmin: user.isAdmin,
+     })
+}else{
+    res.status(404)
+    throw new Error('User Not Found')
+}
+// res.send('Successful')
 })
 
 
