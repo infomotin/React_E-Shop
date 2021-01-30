@@ -1,13 +1,11 @@
 import Product from '../model/productModel.js'
 import asyncHandler from 'express-async-handler'
 
-    //@decs Fetch all product
-    //@route GET /api/products
-    //@access public 
+//@decs Fetch all product
+//@route GET /api/products
+//@access public 
 const getProducts =asyncHandler(async(req, res) =>{
     const products = await Product.find({})
-        // res.status(401)
-        // throw new Error('Not Error Just Test')
     res.json(products)
 })
 //@decs Fetch all product

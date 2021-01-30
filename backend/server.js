@@ -11,6 +11,7 @@ import dotenv from 'dotenv'
 import connectDB from './config/db.js'
 import colors from 'colors'
 import productRoutes from './routes/productsRoutes.js'
+import userRoutes from './routes/userRoutes.js'
 import { notFound, errorHandler } from './middleware/errorMiddleware.js'
 
 dotenv.config()
@@ -19,6 +20,8 @@ connectDB()
 
 const app = express()
 
+// is testing for exceptions jsone data 
+app.use(express.json())
 
 // app.use((req, res, next) => {
 //     console.log(req.originalUrl)
@@ -38,6 +41,7 @@ app.get('/', (req, res) => {
     // })
 
 app.use('/api/products', productRoutes)
+app.use('/api/user', userRoutes)
     //Error Hendeler Define 
     //lamda expertions
 

@@ -1,11 +1,13 @@
 import express from 'express'
-// import Product from '../model/productModel.js'
-// import asyncHandler from 'express-async-handler'
 import {getProducts,getProductById} from '../controllers/productControllers.js'
 const router = express.Router()
-    //@decs Fetch all product
-    //@route GET /api/products
-    //@access public 
+router.route('/').get(getProducts)
+router.route('/:id').get(getProductById)
+export default router 
+
+//@decs Fetch all product
+//@route GET /api/products
+//@access public 
 // router.get('/', asyncHandler(async(req, res) => {
 //     const products = await Product.find({})
 //         // res.status(401)
@@ -27,9 +29,3 @@ const router = express.Router()
 //     }
 
 // }))
-router.route('/').get(getProducts)
-router.route('/:id').get(getProductById)
-
-
-
-export default router
