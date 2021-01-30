@@ -41,7 +41,7 @@ app.get('/', (req, res) => {
     // })
 
 app.use('/api/products', productRoutes)
-app.use('/api/user', userRoutes)
+app.use('/api/users', userRoutes)
     //Error Hendeler Define 
     //lamda expertions
 
