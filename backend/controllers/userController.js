@@ -1,4 +1,5 @@
 import User from '../model/userModel.js'
+import genTokrn from '../utilite/genToken.js'
 import asyncHandler from 'express-async-handler'
 
     //@decs Auth user & get token
@@ -19,7 +20,7 @@ const authUser =asyncHandler(async(req, res) =>{
             name: user.name,
             email: user.email,
             isAdmin: user.isAdmin,
-            token: null,
+            token: genTokrn(user._id),
 
         })
     }else{
@@ -30,4 +31,37 @@ const authUser =asyncHandler(async(req, res) =>{
 
 })
 
-export { authUser }
+
+//@decs Get user profile
+//@route GET /api/user/profile
+//@access Privat
+const getUserProfile =asyncHandler(async(req, res) =>{
+
+// // const {email,password} = req.body
+// // console.log(req.body.email)
+// // console.log(req.body.password)
+
+// // res.send({email,password})
+
+// const user = await User.findById(req.user._id)
+// if(user && user.matchPassword(password) ){
+//     res.json({
+//         _id: user._id,
+//         name: user.name,
+//         email: user.email,
+//         isAdmin: user.isAdmin,
+//         token: genTokrn(user._id),
+
+//     })
+// }else{
+//     res.status(401)
+//     throw new Error('Invalide user or password')
+// }
+
+res.send('Successful')
+})
+
+
+export { authUser,getUserProfile }
+
+// using jwt_token for user 
