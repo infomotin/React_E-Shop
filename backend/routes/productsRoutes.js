@@ -5,7 +5,7 @@ import asyncHandler from 'express-async-handler'
 const router = express.Router()
     //@decs Fetch all product
     //@route GET /api/products
-    //@access public
+    //@access public 
 router.get('/', asyncHandler(async(req, res) => {
     const products = await Product.find({})
         // res.status(401)
