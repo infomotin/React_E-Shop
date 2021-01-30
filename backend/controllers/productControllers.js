@@ -23,3 +23,6 @@ const getProductById =asyncHandler(async(req, res) =>{
         throw new Error('Product Not in List')
     }
 })
+
+
+export {getProducts,getProductById}
