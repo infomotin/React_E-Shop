@@ -37,8 +37,25 @@ const registerUser = asyncHandler(async (req,res)=>{
     if(userExists){
         res.status(400)
         throw new Error('Email are Exiesting ')
-    }else{
+    }
 
+    // using mongoose Model functions are create 
+    const user = await User.create({
+        name,
+        email,
+        password
+    })
+    if(user){
+        res.status(201).json({
+            _id: user._id,
+            name: user.name,
+            email: user.email,
+            isAdmin: user.isAdmin,
+            token: genTokrn(user._id),
+        })
+    }else{
+        res.status(400)
+        throw new Error("User Note carete ")
     }
 })
 
@@ -84,6 +101,6 @@ if(user){
 })
 
 
-export { authUser,getUserProfile }
+export { authUser,registerUser,getUserProfile }
 
 // using jwt_token for user 
