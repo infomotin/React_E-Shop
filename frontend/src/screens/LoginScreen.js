@@ -9,14 +9,18 @@ import {login} from '../actions/userActions'
 
 
 
-const LoginScreen = () => {
+const LoginScreen = ({location}) => {
 
-    const submitHandelerClick = []
-    const redirect = []
 
+    
     const {email,setEmail} = useState('')
     const {password,setPassword} = useState('')
+    const redirect = location.search ? location.search.split('=')[1]:'/'
 
+    const submitHandelerClick = (e)=>{
+        e.preventDefault()
+        // dispatch login
+    }
     return (
         <FormConteainer>
             <h1>SignIn</h1>
@@ -43,7 +47,7 @@ const LoginScreen = () => {
         </Form>
         <Row className='py-3'> 
             <Col>
-                New Customer ? <link to={redirect ? `/register?redirect=${redirect}`:'/register'}>Register</link>
+                New Customer ? {' '} <Link to={redirect ? `/register?redirect=${redirect}`:'/register'}>Register</Link>
             </Col>
         </Row>
         </FormConteainer>

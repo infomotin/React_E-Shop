@@ -7,7 +7,7 @@ import {
 import axios from 'axios'
 
 // request method bring some data for request 
-export const login = (email,password) =>async(dispatch)=>{
+export const login = (email,password) =>async(dispatch, getState)=>{
     try {
         dispatch({
             type: USER_LOGIN_REQUEST
