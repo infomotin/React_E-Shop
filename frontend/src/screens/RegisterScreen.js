@@ -32,11 +32,17 @@ const RegisterScreen = ({location,history}) => {
 
     const submitHandelerClick = (e)=>{
         e.preventDefault()
-        // dispatch(register(name,email,password)) dispath register user 
+        if(password !== confirmPassword){
+            setMessage("Password Not Mess")
+        }else{
+            dispatch(register(name,email,password))
+        }
+        //  dispath register user 
     }
     return (
         <FormConteainer>
             <h1>Register A New User</h1>
+            {message && <Message variant='danger'>{message}</Message>}
             {error && <Message variant='danger'>{error}</Message>}
             {loading && <Loading />}
         <Form onSubmit={submitHandelerClick}>
@@ -62,7 +68,7 @@ const RegisterScreen = ({location,history}) => {
                 <Form.Label>
                     Conform Password
                 </Form.Label>
-                <Form.Control type='password' placeholder='Enter password' value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}></Form.Control>
+                <Form.Control type='password' placeholder='Conform Password' value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}></Form.Control>
             </Form.Group>
 
             <Button type='submit' variant='primary'>Register </Button>
@@ -70,7 +76,7 @@ const RegisterScreen = ({location,history}) => {
         </Form>
         <Row className='py-3'> 
             <Col>
-                New Customer ?<Link to={redirect ? `/register?redirect=${redirect}`:'/register'}>Register</Link>
+                Have an Account ?<Link to={redirect ? `/login?redirect=${redirect}`:'/login'}>Login</Link>
             </Col>
         </Row>
         </FormConteainer>
