@@ -8,7 +8,7 @@ import {Container,Col,Row,Navbar,Nav,NavDropdown} from 'react-bootstrap'
 
 const Header = () => {
   const usedispatch = useDispatch()
-  const userlogin = useSelector(state => state.userLogin.userInfo.userLogin)
+  const userlogin = useSelector(state => state.userLogin)
   const {userInfo} = userlogin
   const logoutHandler = ()=>{
     console.log("LOGOUT HANDLER ARE CALL")
