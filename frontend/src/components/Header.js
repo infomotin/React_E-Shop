@@ -2,11 +2,21 @@ import React from 'react'
 // import { LinkContainer } from 'react-router-dom'
 // import { LinkContainer } from 'react-router-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
+import { useDispatch,useSelector }  from 'react-redux'
 
 import {Container,Col,Row,Navbar,Nav,NavDropdown} from 'react-bootstrap'
 
 const Header = () => {
+  const usedispatch = useDispatch()
+  const userlogin = useSelector(state => state.userLogin.userInfo.userLogin)
+  const {userInfo} = userlogin
+  const logoutHandler = ()=>{
+    console.log("LOGOUT HANDLER ARE CALL")
+  }
     return( 
+  
+
+
         <header>
 <Navbar bg="dark" variant='dark' expand="lg" collapseOnSelect> 
 <Container>
@@ -21,10 +31,23 @@ const Header = () => {
     <Nav className="ml-auto">
       <LinkContainer to='/cart'>
       <Nav.Link ><i className="fas fa-shopping-cart"></i>Cart</Nav.Link>
+      </LinkContainer> 
+       {userInfo ? (
+        <NavDropdown title={userInfo.name} id='username'>
+          <LinkContainer to='/profile'>
+          <NavDropdown.Item>
+            Profile
+          </NavDropdown.Item>
+          <NavDropdown.Item onClick={logoutHandler}>Logout</NavDropdown.Item>
+          </LinkContainer>
+        </NavDropdown>
+       ):
+       <LinkContainer to='/login'>
+        <Nav.Link ><i className="fas fa-user"></i>Login</Nav.Link> 
       </LinkContainer>
-      <LinkContainer to='/login'>
-      <Nav.Link ><i className="fas fa-user"></i>Login</Nav.Link> 
-      </LinkContainer>
+      }
+
+
     </Nav>
 </Navbar.Collapse>
 

@@ -30,9 +30,9 @@ export const CartScreen = ({ match, location, history }) => {
   //de structure data type from store data house
   const { cartItems } = cartList;
 
-  console.log(cartItems);
+  // console.log(cartItems);
 
-  useEffect(() => {
+  useEffect((setQty) => {
     if (productId) {
       dispatch(addToCart(productId, qty));
     }
@@ -44,7 +44,7 @@ export const CartScreen = ({ match, location, history }) => {
   };
   const checkOutHendler = () => {
     history.push('/login?redirect=shippingaddress')
-    console.log('if login')
+    // console.log('if login')
   };
 
   return (

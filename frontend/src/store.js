@@ -25,7 +25,7 @@ const userInfoFromStorage = localStorage.getItem('userInfo') ? JSON.parse(localS
 
 const initialState = {
     cart: { cartItems: cartItemsFromStorage },
-    userLogin: { userLogin: userInfoFromStorage },
+    userLogin: { userInfo: userInfoFromStorage }
 }
 const middleware = [reduxThunk]
 const store = createStore(
