@@ -5,13 +5,14 @@ import reduxThunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension'
 import { productListReducers, productDetailsReducers } from './reducers/productReducers'
 import { cartReducers } from './reducers/cartReducers'
-import { userLoginReducers } from './reducers/userReducers'
+import { userLoginReducers,userRegisterReducers } from './reducers/userReducers'
 
 const reducer = combineReducers({
     productList: productListReducers,
     productDetails: productDetailsReducers,
     cartList: cartReducers,
     userLogin:userLoginReducers,
+    userRegister:userRegisterReducers,
 })
 
 // //if cart items are store in local variable in can retripe from local stoare else set to inital default 
