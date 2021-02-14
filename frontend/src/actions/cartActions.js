@@ -2,6 +2,7 @@ import {
   CART_ADD_ITEM,
   CART_REMOVE_ITEM,
   CART_ERROR,
+  CART_SAVE_SHIPPING_ADDRESS,
 } from "../constants/cartConstance";
 import axios from "axios";
 //getState come from store ....
@@ -25,7 +26,7 @@ export const addToCart = (id, qty) => async (dispatch, getState) => {
   );
 };
 
-export const removeFromCart = (id, qty) => (dispatch, getState) => {
+export const removeFromCart = (id) => (dispatch, getState) => {
   dispatch({
     type: CART_REMOVE_ITEM,
     payload: id,
@@ -37,6 +38,18 @@ export const removeFromCart = (id, qty) => (dispatch, getState) => {
   );
 };
 
+
+export const saveShippingAdress = (data) => (dispatch) => {
+  dispatch({
+    type: CART_SAVE_SHIPPING_ADDRESS,
+    payload: data,
+  });
+
+  localStorage.setItem(
+    "SHIPPINGaDDRESS",
+    JSON.stringify(data)
+  );
+};
 //try{
 //     //if this actions success
 //     dispatch({type:CART_ADD_ITEM})
