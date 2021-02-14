@@ -2,16 +2,28 @@ import React,{useState} from 'react'
 import {Form,Button} from 'react-bootstrap'
 import {useDispatch,useSelector} from 'react-redux'
 import FormConteainer from '../components/FormConteainer'
+import {saveShippingAdress} from '../actions/cartActions'
 
 
 const ShippingScreen = ({history}) => {
-    const [address,setAddress] = useState('')
-    const [city,setCity] = useState('')
-    const [postCode,setPostCode] = useState('')
-    const [country,setCountry] = useState('')
+    // get data from stage 
+    const cart = useSelector(state=>state.cart.cart)
+    const {shippingAddress} = cart
+
+
+    const [address,setAddress] = useState(shippingAddress.address)
+    const [city,setCity] = useState(shippingAddress.city)
+    const [postCode,setPostCode] = useState(shippingAddress.postCode)
+    const [country,setCountry] = useState(shippingAddress.country)
+    // create dispath 
+    const dispatch = useDispatch()
+
+    
     const submitHandler = (e) =>{
         e.preventDefault()
-        console.log("SubmitHandler call")
+        dispatch(saveShippingAdress({address,city,postCode,country}))
+        history.push('/payment')
+        console.log("/payment call")
     }
 
 
