@@ -7,8 +7,8 @@ import {saveShippingAdress} from '../actions/cartActions'
 
 const ShippingScreen = ({history}) => {
     // get data from stage 
-    const cart = useSelector(state=>state.cart.cart)
-    const {shippingAddress} = cart
+    const cart = useSelector(state =>state.cartList)  
+    const { shippingAddress } = cart
 
 
     const [address,setAddress] = useState(shippingAddress.address)

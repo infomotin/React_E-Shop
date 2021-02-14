@@ -32,7 +32,7 @@ export const cartReducers = (state = {
         case CART_SAVE_SHIPPING_ADDRESS:
                 return {
                     ...state,
-                    shippingAddress: action.payload,
+                    shippingAddress: action.payload
                 }
         case CART_ERROR:
             return state
