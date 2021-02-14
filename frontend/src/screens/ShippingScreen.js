@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import {Form,Button} from 'react-bootstrap'
 import {useDispatch,useSelector} from 'react-redux'
 import FormConteainer from '../components/FormConteainer'
-import chackoutSteps from '../components/chackoutSteps'
+import ChackoutSteps from '../components/ChackoutSteps'
 import {saveShippingAdress} from '../actions/cartActions'
 
 
@@ -30,7 +30,7 @@ const ShippingScreen = ({history}) => {
 
     return (
         <FormConteainer>
-            <chackoutSteps step1 step2 />
+            <ChackoutSteps step1 step2 />
             <h1>Shipping</h1> 
 
             <Form onSubmit={submitHandler}>
