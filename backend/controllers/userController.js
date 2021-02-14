@@ -31,6 +31,9 @@ const authUser =asyncHandler(async(req, res) =>{
 
 })
 //reg new new user 
+//@decs Auth user & get token
+//@route POST /api/user/login
+//@access public 
 const registerUser = asyncHandler(async (req,res)=>{
     const {name,email,password} = req.body
     const userExists = await User.findOne({email})
@@ -64,26 +67,7 @@ const registerUser = asyncHandler(async (req,res)=>{
 //@access Privat
 const getUserProfile =asyncHandler(async(req, res) =>{
 
-// // const {email,password} = req.body
-// // console.log(req.body.email)
-// // console.log(req.body.password)
 
-// // res.send({email,password})
-
-// const user = await User.findById(req.user._id)
-// if(user && user.matchPassword(password) ){
-//     res.json({
-//         _id: user._id,
-//         name: user.name,
-//         email: user.email,
-//         isAdmin: user.isAdmin,
-//         token: genTokrn(user._id),
-
-//     })
-// }else{
-//     res.status(401)
-//     throw new Error('Invalide user or password')
-// }
 
 const user = await User.findById(req.user._id)
 if(user){
@@ -104,3 +88,26 @@ if(user){
 export { authUser,registerUser,getUserProfile }
 
 // using jwt_token for user 
+
+
+
+// // const {email,password} = req.body
+// // console.log(req.body.email)
+// // console.log(req.body.password)
+
+// // res.send({email,password})
+
+// const user = await User.findById(req.user._id)
+// if(user && user.matchPassword(password) ){
+//     res.json({
+//         _id: user._id,
+//         name: user.name,
+//         email: user.email,
+//         isAdmin: user.isAdmin,
+//         token: genTokrn(user._id),
+
+//     })
+// }else{
+//     res.status(401)
+//     throw new Error('Invalide user or password')
+// }

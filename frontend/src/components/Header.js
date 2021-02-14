@@ -3,16 +3,17 @@ import React from 'react'
 // import { LinkContainer } from 'react-router-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 import { useDispatch,useSelector }  from 'react-redux'
+import { logout } from '../actions/userActions.js'
 
 import {Container,Col,Row,Navbar,Nav,NavDropdown} from 'react-bootstrap'
 
 const Header = () => {
   const usedispatch = useDispatch()
-  const userlogin = useSelector(state => state.userLogin)
-  const {userInfo} = userlogin
+  const userLogin = useSelector(state => state.userLogin)
+  const {userInfo} = userLogin
   const logoutHandler = ()=>{
-    console.log("LOGOUT HANDLER ARE CALL")
-  }
+    logout()
+  }   
     return( 
   
 

@@ -33,7 +33,7 @@ const RegisterScreen = ({location,history}) => {
     const submitHandelerClick = (e)=>{
         e.preventDefault()
         if(password !== confirmPassword){
-            setMessage("Password Not Mess")
+            setMessage("Password Not Same")
         }else{
             dispatch(register(name,email,password))
         }
